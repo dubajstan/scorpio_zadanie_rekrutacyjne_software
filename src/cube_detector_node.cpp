@@ -146,7 +146,7 @@ namespace cube_detector{
         sub_image_(this->create_subscription<sensor_msgs::msg::Image>("/zed/zed_node/left_raw/image_raw_color", rclcpp::QoS(10), std::bind(&CubeDetector::image_callback, this, std::placeholders::_1))),
         pub_image_(this->create_publisher<sensor_msgs::msg::Image>("cube_detector/detected_cubes/image", rclcpp::QoS(10))) {
             // parametry pod testy
-            this->declare_parameter("min_area", 300.0);
+            this->declare_parameter("min_area", 20.0);
             auto declare_hsv_params = [this](const std::string& prefix, int h_min, int s_min, int v_min, int h_max, int s_max, int v_max) {
                 this->declare_parameter(prefix + ".h_min", h_min);
                 this->declare_parameter(prefix + ".s_min", s_min);
@@ -155,8 +155,8 @@ namespace cube_detector{
                 this->declare_parameter(prefix + ".s_max", s_max);
                 this->declare_parameter(prefix + ".v_max", v_max);
             };
-            declare_hsv_params("green", 50, 100, 50, 110, 255, 255);
-            declare_hsv_params("blue", 95, 100, 50, 110, 255, 255);
+            declare_hsv_params("green", 50, 100, 50, 75, 255, 255);
+            declare_hsv_params("blue", 90, 100, 50, 115, 255, 255);
             declare_hsv_params("white", 0, 0, 180, 180, 40, 255);
             this->declare_parameter("red.h_min1", 0);
             this->declare_parameter("red.h_max1", 15);
