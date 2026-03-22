@@ -121,7 +121,11 @@ source install/setup.bash
 ```
 Odtworzyć rosbaga (najlepiej w pętli)
 ```
-ros2 bag play <sciezka do folderu z rosbagiem>
+ros2 bag play <sciezka do folderu z rosbagiem> --loop
+```
+Odpalić node z rozwiązaniem
+```
+ros2 run scorpio_zadanie_rekrutacyjne_software cube_detector_node
 ```
 Otworzyć rqt image view w celu podglądnięcia obrazu z topicu
 ```
