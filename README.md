@@ -85,3 +85,45 @@ Pamiętaj, że zadanie służy sprawdzeniu wielu umiejętności - nie tylko prog
 - [Oficjalna dokumentacja RCLCPP](https://docs.ros.org/en/humble/p/rclcpp/)
 
 **Jeżeli będziesz miał jakiekolwiek wątpliwości i problemy z zadaniem śmiało skontaktuj się z nami na maila projekt@scorpio.pwr.edu.pl! Powodzenia :)**
+
+# Rozwiązanie
+
+## Zadanie 2
+Stworzyłem plik w `src/ilmenite_ratio.cpp`, który można odpalić jako node ros-owy.
+
+Zadanie zostało rozwiązane na podstawie binaryzacji obrazu. Ze względu na to, że kawałki ilmentu były znacznie ciemniejsze, to zdecydowałem się na załadowanie zdjęcia w skali szarości, lekki rozmycie w celu usunięcia szumu i ustalenie sztywnego progu.
+
+Aby odpalić plik należy zbudować rozwiązanie
+```
+colcon build
+```
+Następnie zsourceować setup
+```
+source install/setup.bash
+```
+Następnie odpalić węzeł
+```
+ros2 run scorpio_zadanie_rekrutacyjne_software ilmenite_ratio
+```
+
+## Zadanie 3 i 4
+Zadania zostały rozwiązane razem w pliku `cube_detector_node.cpp`.
+
+Kropki z zadania 3 oprócz bycia opublikowanym na topici będą też widoczne na publikowanym obrazie kamery. Zadanie zostało wykonane na podstawie analizy obrazu w przestrzeni barw HSV z prostymi i sztywno ustawionymi progami kolorów i wielkości kostki.
+
+Aby przetestować rozwiązanie należy je zbudować
+```
+colcon build
+```
+Zsourceować setup
+```
+source install/setup.bash
+```
+Odtworzyć rosbaga (najlepiej w pętli)
+```
+ros2 bag play <sciezka do folderu z rosbagiem>
+```
+Otworzyć rqt image view w celu podglądnięcia obrazu z topicu
+```
+ros2 run rqt_image_view rqt_image_view
+```
