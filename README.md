@@ -140,8 +140,9 @@ Niestety nie miałem już czasu na dokończeniu drugiego podejścia, ale przedst
 2. Zamienienie obrazu na przestrzeń HSV
 3. Wyciągnięcie z obrazu regionów względem odpowiednich kolorów
 4. Poszerzenie znalezionych obszarów z użyciem dylatacji
-5. Na tych regionach uruchomienie detektra Canny aby znaleźć krawędzie
-6. Zamknięcie morfologiczne na krawędziach
-6. Iteracja po krawędziach i filtrowanie ich względem tego jak bardzo kwadratowe są. Area > 20 -> convex hull -> aspect ratio < 1.25
-7. Wyłonienie największego
-8. Nałożenie bounding boxów i środków
+5. Zamiana na skale szarości
+6. Na tych regionach uruchomienie detektra Canny aby znaleźć krawędzie
+7. Zamknięcie morfologiczne na krawędziach
+8. Iteracja po krawędziach i filtrowanie ich względem tego jak bardzo kwadratowe są. Area > 20 -> convex hull -> aspect ratio < 1.25
+9. Wyłonienie największego
+10. Nałożenie bounding boxów i środków
