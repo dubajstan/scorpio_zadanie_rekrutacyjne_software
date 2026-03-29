@@ -131,3 +131,17 @@ Otworzyć rqt image view w celu podglądnięcia obrazu z topicu
 ```
 ros2 run rqt_image_view rqt_image_view
 ```
+![alt text](image.png)
+
+Jeśli chodzi o to zadanie to działa... średniawo.
+Aktualny algorytm bazuje jedynie na szukaniu odpowiednich kolorów w przestrzeni HSV.
+Niestety nie miałem już czasu na dokończeniu drugiego podejścia, ale przedstawię pomysł.
+1. Nałożenie filtru bilateralnego
+2. Zamienienie obrazu na przestrzeń HSV
+3. Wyciągnięcie z obrazu regionów względem odpowiednich kolorów
+4. Poszerzenie znalezionych obszarów z użyciem dylatacji
+5. Na tych regionach uruchomienie detektra Canny aby znaleźć krawędzie
+6. Zamknięcie morfologiczne na krawędziach
+6. Iteracja po krawędziach i filtrowanie ich względem tego jak bardzo kwadratowe są. Area > 20 -> convex hull -> aspect ratio < 1.25
+7. Wyłonienie największego
+8. Nałożenie bounding boxów i środków
